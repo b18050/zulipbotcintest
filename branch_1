@@ -1,0 +1,8 @@
+import requests
+from bs4 import BeautifulSoup
+url="https://codeforces.com/contests"
+r=requests.get(url)
+soup=BeautifulSoup(r.content)
+links=soup.find_all(True)
+for _ in links:
+    print(_)
