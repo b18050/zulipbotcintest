@@ -1,3 +1,3 @@
 # zulipbotcintest
-contest reminder 
+contest reminder bot
 using selenium and python
