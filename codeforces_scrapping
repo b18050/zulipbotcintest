@@ -1,0 +1,36 @@
+"""CODEFORCES"""
+
+    
+import requests
+from bs4 import BeautifulSoup
+
+    
+url="https://codeforces.com/contests"
+r=requests.get(url)
+soup=BeautifulSoup(r.content,features='lxml')
+
+
+
+links=soup.find("table")
+
+
+
+for link in links:
+    try:
+        #contest_id=link.find()
+        contest_name=link.find("td").text
+        contest_link=link.find("a").get('href')
+        contest_details=link.find("a").text
+        contest_time=link.find("td",class_="state").text
+        contest_duration=link.find("a").find_next("td").text
+        print("CONTEST NAME", contest_name)
+        print("CONTEST LINK", contest_link)
+        print("CONTEST_DATE", contest_details)
+        print(contest_time)
+        print("CONTEST_DURATION", contest_duration)
+        print("=======================================================")
+        
+    except AttributeError:
+        pass
+
+       
