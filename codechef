@@ -1,0 +1,23 @@
+"""CODECHEF"""
+
+    
+import requests
+from bs4 import BeautifulSoup
+
+    
+    
+        
+    
+    
+    
+url="https://codechef.com/contests"
+r=requests.get(url)
+soup=BeautifulSoup(r.content,features='lxml')
+
+table_tr=soup.tr
+table_headings=table_tr.get_text()
+print(table_headings)
+
+links=soup.find("table")
+x=links.get_text()
+print(x)
